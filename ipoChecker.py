@@ -13,6 +13,10 @@ print(''' _             _____ _               _
 headers={
 'Content-Type': 'application/json'}
 
+id_lai=requests.get("https://iporesult.cdsc.com.np/result/companyShares/fileUploaded").json()
+print("Share ID list: ")
+for i in id_lai['body']:
+    print(i)
 id=int(input("Enter the company share id : "))
 num=int(input("Enter how many ipo do you want to check : "))
 for i in range(num):
