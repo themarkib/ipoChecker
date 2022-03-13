@@ -16,7 +16,7 @@ headers={
 id_lai=requests.get("https://iporesult.cdsc.com.np/result/companyShares/fileUploaded").json()
 print("Share ID list: ")
 for i in id_lai['body']:
-    print(i)
+    print("id: " +str(i['id']) + " -- "  + i['name'])
 id=int(input("Enter the company share id : "))
 num=int(input("Enter how many ipo do you want to check : "))
 for i in range(num):
@@ -28,13 +28,10 @@ for i in range(num):
         if result["success"]==False:
             print(result["message"]+"="+boid)
         else:
-            print(result["message"]+",BOID="+boid)
+            print(result["message"]+",BOID :"+boid)
 
     except JSONDecodeError:
         print("Enter valid Boid Number")
     except KeyboardInterrupt:
         print("\nExiting..........")
         break
-        
-
-  
